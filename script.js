@@ -90,6 +90,9 @@ addButton.addEventListener("click", addFunc);
 var enterButton = document.querySelector(".key--enter");
 enterButton.addEventListener("click", equalsFunc);
 
+var enterButton = document.querySelector(".key--decimal");
+enterButton.addEventListener("click", inputDecimal);
+
 var resetButton = document.querySelector(".key--reset");
 resetButton.addEventListener("click", function () {
   result = "0";
