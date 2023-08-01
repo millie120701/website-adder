@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Red+Hat+Display:wght@300;400;500;700&family=Unbounded:wght@200;300;400;500;600;700&display=swap');
-
+html {
+  scroll-behavior: smooth;
+}
 
 :root{
     --dark-black: #1a1a1a;
@@ -13,11 +15,10 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Red Hat Display";
-
-  
+    font-family: "Red Hat Display";  
   }
-  
+
+
 header {
     color: var(--light-sky);
     display: flex;
@@ -262,6 +263,9 @@ body{
     background: hsl(209, 38%, 22%);
 }
 
+.keys button a{
+  color: black;
+}
 .key--operator{
   grid-column: 4; /* Start at column #4 and end at column #5 (the very right edge). */
   grid-row: 1 / span 2; /* Start at row #2 and span 4 rows */
@@ -277,6 +281,10 @@ body{
   cursor: pointer;
   border: none;
 
+}
+
+button[class^= "key"]{
+  color: black;
 }
 
 .key--reset{
