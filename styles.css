@@ -1,0 +1,350 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Red+Hat+Display:wght@300;400;500;700&family=Unbounded:wght@200;300;400;500;600;700&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+
+:root{
+    --dark-black: #1a1a1a;
+    --light-text:rgb(243, 243, 243);
+    --hover-blue: #60a9dd;
+    --hover-menu: var(--hover-blue);
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Red Hat Display";  
+  }
+
+
+header {
+    color: var(--light-sky);
+    display: flex;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.035), 80%, transparent);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    height: 3rem;
+  }
+  
+  .logo-content {
+    display: flex;
+    
+    align-items: center;
+    font-size: 1.5rem;
+
+  
+  }
+  .logo-content h3{
+    font-family: "Unbounded";
+    color: var(--light-text);
+
+  }
+
+
+  .primary-navigation ul{
+    display: flex; 
+    color: var(--light-text);
+    font-weight: 500;
+  
+    gap: 8rem;
+     
+
+    list-style: none;
+    font-size: 1.25rem;
+}
+
+.primary-navigation ul li{
+    cursor: pointer;
+}
+
+.primary-navigation ul li:hover{
+    color: var(--hover-blue)
+
+}
+
+.primary-navigation ul a{
+  color: var(--light-text);
+  text-decoration: none;
+}
+
+
+
+.hamburger-menu{
+    display: none;
+    
+}
+
+ 
+@media only screen and (max-width: 1000px) {
+    .hamburger-menu {
+      display: block;
+      z-index: 3;
+    }
+  
+    .primary-navigation {
+      display: none;
+    }
+  
+    .primary-navigation.active {
+      display: flex;
+      position: absolute;
+      background-color: var(--dark-black);
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+  
+    .primary-navigation.active ul {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-size: 2.75rem;
+    }
+  
+    .hamburger-menu.active {
+      color: var(--light-text);
+    }
+  
+    .primary-navigation.active li:hover {
+      color: var(--light-text);
+    }
+    .primary-navigation ul li {
+      opacity: 0;
+    }
+  
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .primary-navigation ul li {
+      opacity: 0;
+      transform: translateY(-30px); /* Start the elements above their final position */
+    }
+  
+    /* Delay animation for each list item */
+    .primary-navigation ul li:nth-child(1) {
+      animation: slideIn 0.4s forwards 0.1s;
+    }
+  
+    .primary-navigation ul li:nth-child(2) {
+      animation: slideIn 0.5s forwards 0.2s;
+    }
+  
+    .primary-navigation ul li:nth-child(3) {
+      animation: slideIn 0.6s forwards 0.3s;
+    }
+  
+    .primary-navigation ul li:nth-child(4) {
+      animation: slideIn 0.7s forwards 0.4s;
+    }
+  
+    /* Additional styles to create ladder steps */
+    .primary-navigation ul li:last-child:before {
+      height: 15px; /* Shorten the last step to make it look like a ladder */
+    }
+  
+    /* Styles for the hamburger menu icon */
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 32px;
+      height: 23px;
+      cursor: pointer;
+    }
+  
+    .line {
+      display: block;
+      height: 4px;
+      background-color: var(--light-text);
+      border-radius: 2px;
+      transition: transform 0.45s ease;
+    }
+  
+    /* Animate the hamburger menu to cross */
+    .hamburger-menu.active .line-1 {
+      transform: translateY(9.5px) rotate(45deg);
+    }
+  
+    .hamburger-menu.active .line-2 {
+      opacity: 0;
+    }
+  
+    .hamburger-menu.active .line-3 {
+      transform: translateY(-9.5px) rotate(-45deg);
+    }
+  
+    .primary-navigation ul li {
+      position: relative;
+    }
+  
+    .primary-navigation ul li::after {
+      content: "";
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      width: 0;
+      height: 0.35rem;
+      background-color: var(--hover-menu);
+      transition: width 0.3s ease, left 0.3s ease;
+      transform: translateX(-50%);
+    }
+  
+    .primary-navigation ul li:hover::after {
+      width: 100%;
+    }
+}
+  
+
+
+body{
+  background-color:  var(--dark-black);
+
+}
+
+.container{
+    height: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50rem;
+    width: 50rem;
+    padding: 2rem;
+    
+}
+
+.calculator{
+  height: 38rem;
+  width: 25rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12); 
+}
+
+.output {
+  font-size: 4.25rem;
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 1.4rem;
+  padding-left: 0.7rem;
+  background: hsl(202, 11%, 29%); 
+  color: hsl(255, 100%, 100%);
+  height: 8rem;
+}
+
+.keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 30rem;
+    grid-gap: 1px;
+    background: hsl(209, 38%, 22%);
+}
+
+.keys button a{
+  color: black;
+}
+.key--operator{
+  grid-column: 4; /* Start at column #4 and end at column #5 (the very right edge). */
+  grid-row: 1 / span 2; /* Start at row #2 and span 4 rows */
+}
+
+.key--enter{
+  grid-column: 4;
+  grid-row: 3 / span 2;
+}
+
+.keys button{
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+
+}
+
+button[class^= "key"]{
+  color: black;
+}
+
+.key--reset{
+  background-color: rgb(215, 215, 215);
+}
+
+.key--operator, .key--enter{
+  background-color: var(--hover-blue);
+}
+
+.key--num:hover,
+.key--reset:hover{
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
+  outline: none;
+}
+
+.key--operator {
+  background: hsl(208, 25%, 86%);
+}
+.key--operator:hover {
+  background: hsl(208, 24%, 80%);
+}
+
+.key--enter:hover {
+  background: #5aa0d3;
+}
+
+
+
+.about-section {
+  background-color: var(--hover-blue);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 22rem;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+
+.about-text-wrapper{
+  position: absolute;
+  height: 20rem;
+  width: 100%;
+  padding-left: 1.25rem;
+  
+
+  flex-shrink: 0;
+}
+
+.about-questions{
+  font-size: 1.2rem;
+  list-style: none;
+}
+
+.question{
+  font-weight: bold;
+  color: var(--light-text);
+}
+
+
+
